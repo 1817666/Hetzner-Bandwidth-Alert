@@ -19,7 +19,7 @@ curl -H "Authorization: Bearer $API_TOKEN" 'https://api.hetzner.cloud/v1/servers
 while read line
 do
   curl -H "Authorization: Bearer $API_TOKEN" https://api.hetzner.cloud/v1/servers/$line 2>/dev/null > $TMP
-  BW=`bc <<< "$(cat $TMP | grep -Pzo '(?<="outgoing_traffic": )(.*)(?=,)')/1024^2"`
+  BW=`bc <<< "$(cat $TMP | grep -Pzo '(?<="outgoing_traffic": )(.*)(?=,)')/1024^4"`
   SERVER=$(cat $TMP | grep -Pzo '(?<=\n\s{4}"name": ")(.*)(?=",)')
   IP=$(cat $TMP | grep -Pzo '(?<=\"ipv4\"\:\s\{\n\s{8}"ip": ")(.*)(?=",)')
   if [ "$BW" -ge $BWALERT ]
