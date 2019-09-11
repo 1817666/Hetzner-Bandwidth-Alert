@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Hetzner Outgouing Traffic Monitoring
-# https://docs.hetzner.cloud
-# https://pushover.net
-# https://t.me/Nginx0
-
 # HETNER
 API_TOKEN="HETZNER_API_TOKEN"
 PROJECT="HETZNER_PREJECT_ID"
@@ -35,7 +30,7 @@ do
 	  --form-string "user=$USER" \
 	  --form-string "title=Bandwidth Usage Alert!" \
 	  --form-string "message=Server $SERVER ($IP) using $BW TB Outgouing Traffic!" \
-	  --form-string "url=https://console.hetzner.cloud/projects/$PROJECT/servers/3060821/overview" \
+	  --form-string "url=https://console.hetzner.cloud/projects/$PROJECT/servers/$SERVER/overview" \
 	  https://api.pushover.net/1/messages.json &> /dev/null
   fi
 done < $FILE
