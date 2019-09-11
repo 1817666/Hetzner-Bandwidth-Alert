@@ -1,6 +1,3 @@
-# Hetzner API Tools
+# Hetzner Bandwidth Alert
 
-...
-
-## Bandwidth Alert
-`bandwidth_alert.sh`
+Get bandwidth alert notification with Pushover.
