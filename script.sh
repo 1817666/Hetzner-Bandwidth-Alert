@@ -30,7 +30,7 @@ do
 	  --form-string "user=$USER" \
 	  --form-string "title=Bandwidth Usage Alert!" \
 	  --form-string "message=Server $SERVER ($IP) using $BW TB Outgouing Traffic!" \
-	  --form-string "url=https://console.hetzner.cloud/projects/$PROJECT/servers/$SERVER/overview" \
+	  --form-string "url=https://console.hetzner.cloud/projects/$PROJECT/servers/$line/overview" \
 	  https://api.pushover.net/1/messages.json &> /dev/null
   fi
 done < $FILE
